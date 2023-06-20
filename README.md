@@ -3,11 +3,11 @@
 ### Reverse mouse direction
 
 ```shell
-xinput --set-prop  "$(xinput | grep -o "[a-zA-Z][a-zA-Z ]*Mouse")" 152 1 0 0 0 1 0 0 0 -1
+xinput --set-prop "$(xinput | grep "Mouse" | sed -e 's/.*id=\([0-9]*\).*/\1/g')" 152 1 0 0 0 1 0 0 0 -1
 ```
 
 ## Revert
 
 ```shell
-xinput --set-prop  "$(xinput | grep -o "[a-zA-Z][a-zA-Z ]*Mouse")" 152 1 0 0 0 1 0 0 0 1
+xinput --set-prop "$(xinput | grep "Mouse" | sed -e 's/.*id=\([0-9]*\).*/\1/g')" 152 1 0 0 0 1 0 0 0 1
 ```
